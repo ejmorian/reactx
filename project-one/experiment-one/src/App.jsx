@@ -28,7 +28,7 @@ function App() {
 
   }
 
-  const [text, setText] = useState(true)
+  const [textColor, setTextColor] = useState("yellow")
 
   return (
     <div>
@@ -38,8 +38,8 @@ function App() {
       <input type='text' onChange={mirror} />
       <p>{inputValue}</p>
 
-      <button onClick={() => text ? setText(false) : setText(true)}>Show/Hide</button>
-      {text && <h1>"Click to hide"</h1>}
+      <button onClick={() => textColor == "yellow" ? setTextColor("black") : setTextColor("yellow")}>Show/Hide</button>
+      <h1 style={{ color: textColor }}>"Click to hide"</h1>
     </div>
   )
 }
