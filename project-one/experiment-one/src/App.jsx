@@ -1,76 +1,31 @@
 import './app.css'
-import Users from './User'
-import Planets from './Planets'
+import { useState } from 'react'
 
-//ternary operators are like if statement but a shorter way of it.
-// (if this is true) ? (this place this) : (do this)
-// ? stands for `then` and : stands for else
-// one can also use the && if its only an if statement with no else.
+//We are now learning useState
+// useState is an object/hook that returns 2 values, a currentstate, and a function to update a state normally prefixed with `set`. 
+// useState('initial value', it also takes in the initial value of the state as a parameter)
+// the function value that is returned is the function that rerenders the component in real time whenever it is called, ie when the current value is changed.
+
 
 
 function App() {
-  const users = [
-    {
-      name: "Joy",
-      age: '28',
-      gender: 'female'
-    },
-    {
-      name: "JM",
-      age: '29',
-      gender: 'male'
-    },
-    {
-      name: "Luffy",
-      age: '30',
-      gender: 'male'
-    },
-    {
-      name: "Nami",
-      age: '24',
-      gender: 'female'
-    },
-    {
-      name: "Usopp",
-      age: '27',
-      gender: 'male'
-    },
-  ]
 
-  const planets = [
-    {
-      name: "Mars",
-      isGas: false
-    },
-    {
-      name: "Earth",
-      isGas: false
-    },
-    {
-      name: "Jupiter",
-      isGas: true
-    },
-    {
-      name: "Venus",
-      isGas: false
-    },
-    {
-      name: "Neptune",
-      isGas: true
-    },
-    {
-      name: "Uranus",
-      isGas: true
-    },
-  ]
-  // display gas planets only
-  // Use map() to display list, ternary operator to check if planet is gas or not
+  let [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1)
+    console.log('click')
+  }
+  const decrement = () => {
+    setCount(count - 1)
+    console.log('click')
+  }
+
   return (
     <div>
-      {users.map((user, key) => <Users key={key} name={user.name} age={user.age} gender={user.gender} />)}
-
-      {planets.map((planet, key) => planet.isGas && <Planets key={key} name={planet.name} />)}
-
+      <h1>{count}</h1>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
     </div>
   )
 }
