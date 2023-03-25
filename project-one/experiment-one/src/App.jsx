@@ -28,6 +28,8 @@ function App() {
 
   }
 
+  const [text, setText] = useState(true)
+
   return (
     <div>
       <h1>{count}</h1>
@@ -35,6 +37,9 @@ function App() {
       <button onClick={decrement}>-</button>
       <input type='text' onChange={mirror} />
       <p>{inputValue}</p>
+
+      <button onClick={() => text ? setText(false) : setText(true)}>Show/Hide</button>
+      {text && <h1>"Click to hide"</h1>}
     </div>
   )
 }
