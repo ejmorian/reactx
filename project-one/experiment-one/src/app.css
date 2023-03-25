@@ -1,0 +1,10 @@
+.greet {
+    text-align: center;
+}
+
+.profile {
+    border: solid black 1px;
+    max-width: 200px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
