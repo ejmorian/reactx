@@ -10,7 +10,7 @@ import { useState } from 'react'
 
 function App() {
 
-  let [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   const increment = () => {
     setCount(count + 1)
@@ -21,11 +21,20 @@ function App() {
     console.log('click')
   }
 
+  const [inputValue, setInputValue] = useState("")
+
+  const mirror = (event) => {
+    setInputValue(event.target.value)
+
+  }
+
   return (
     <div>
       <h1>{count}</h1>
       <button onClick={increment}>+</button>
       <button onClick={decrement}>-</button>
+      <input type='text' onChange={mirror} />
+      <p>{inputValue}</p>
     </div>
   )
 }
