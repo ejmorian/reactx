@@ -1,5 +1,7 @@
 import './app.css'
 import { useState } from 'react'
+import Nav from './components/nav'
+import Header from './components/header'
 
 //We are now learning useState
 // useState is an object/hook that returns 2 values, a currentstate, and a function to update a state normally prefixed with `set`. 
@@ -9,41 +11,12 @@ import { useState } from 'react'
 
 
 function App() {
-
-  const [count, setCount] = useState(0);
-
-  const increment = () => {
-    setCount(count + 1)
-    console.log('click')
-  }
-  const decrement = () => {
-    setCount(count - 1)
-    console.log('click')
-  }
-
-  const [inputValue, setInputValue] = useState("")
-
-  const mirror = (event) => {
-    setInputValue(event.target.value)
-
-  }
-
-  const [textColor, setTextColor] = useState("yellow")
-
   return (
-    <div>
-      <h1>{count}</h1>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
-      <input type='text' onChange={mirror} />
-      <p>{inputValue}</p>
-
-      <button onClick={() => textColor == "yellow" ? setTextColor("black") : setTextColor("yellow")}>Show/Hide</button>
-      <h1 style={{ color: textColor }}>"Click to hide"</h1>
+    <div className='container'>
+      <Nav menuOne="About" menuTwo="Projects" menuThree="Code" />
+      <Header title="Hi, I am JMorian" subTitle="I am a Front-End Developer" />
     </div>
   )
 }
-
-
 
 export default App

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.nav {
+    position: absolute;
+    width: 100dvw;
+    font-weight: 700;
+    background-color: transparent;
+
+}
+
+.nav ul {
+
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: .5rem 2.5rem;
+    list-style: none;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
