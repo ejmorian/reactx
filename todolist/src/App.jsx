@@ -10,18 +10,23 @@ function App() {
     setInput(e.target.value);
 
   }
-
   const addTask = () => {
-    const task = {
-      id: list.length === 0 ? 1 : list[list.length - 1].id + 1,
-      name: input
-    }
-
+    const task = { id: list.length === 0 ? 1 : list[list.length - 1].id + 1, name: input, complete: false }
     setList([...list, task])
-    console.log(list)
   }
 
   const deleteTask = (id) => setList(list.filter((item) => item.id !== id))
+
+  const checkTask = (id, done) => {
+
+    const update = list.map(item => {
+      if (item.id === id) {
+        return { ...item, complete: !done }
+      }
+      return item;
+    })
+    setList(update)
+  }
 
   return (
     <div>
@@ -29,7 +34,15 @@ function App() {
       <input type='text' placeholder='Enter Task' id='todolist' name='task' onChange={updateInput} />
       <button onClick={addTask}>Add</button>
       <ol>
-        {list.map((task) => <li onClick={() => { deleteTask(task.id) }} key={task.id}>{task.name}</li>)}
+        {list.map((task) => {
+          return (
+            <div>
+              <li onClick={() => checkTask(task.id, task.complete)} style={{ color: task.complete ? 'green' : 'black' }} key={task.id}>{task.name}
+                <span onClick={() => { deleteTask(task.id) }} style={{ marginLeft: '20px' }}>x</span></li>
+
+            </div>
+          )
+        })}
       </ol>
 
     </div>
