@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import './App.css'
 
-
-
 function App() {
 
   const [list, setList] = useState([])
@@ -17,11 +15,7 @@ function App() {
     setList([...list, input])
   }
 
-  const deleteTask = (task) => {
-    const updateList = list.filter((item) => item !== task)
-    setList(updateList)
-
-  }
+  const deleteTask = (key) => setList(list.filter((item, index) => index !== key))
 
   return (
     <div>
@@ -29,7 +23,7 @@ function App() {
       <input type='text' placeholder='Enter Task' id='todolist' name='task' onChange={updateInput} />
       <button onClick={addTask}>Add</button>
       <ol>
-        {list.map((task, key) => <li onClick={() => { deleteTask(task) }} key={key}>{task}</li>)}
+        {list.map((task, key) => <li onClick={() => { deleteTask(key) }} key={key}>{task}</li>)}
       </ol>
 
     </div>
