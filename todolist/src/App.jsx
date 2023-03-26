@@ -12,10 +12,16 @@ function App() {
   }
 
   const addTask = () => {
-    setList([...list, input])
+    const task = {
+      id: list.length === 0 ? 1 : list[list.length - 1].id + 1,
+      name: input
+    }
+
+    setList([...list, task])
+    console.log(list)
   }
 
-  const deleteTask = (key) => setList(list.filter((item, index) => index !== key))
+  const deleteTask = (id) => setList(list.filter((item) => item.id !== id))
 
   return (
     <div>
@@ -23,7 +29,7 @@ function App() {
       <input type='text' placeholder='Enter Task' id='todolist' name='task' onChange={updateInput} />
       <button onClick={addTask}>Add</button>
       <ol>
-        {list.map((task, key) => <li onClick={() => { deleteTask(key) }} key={key}>{task}</li>)}
+        {list.map((task) => <li onClick={() => { deleteTask(task.id) }} key={task.id}>{task.name}</li>)}
       </ol>
 
     </div>
