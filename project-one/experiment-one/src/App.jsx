@@ -3,6 +3,8 @@ import { useState } from 'react'
 import Nav from './components/nav'
 import Header from './components/header'
 import Content from './components/content'
+import Footer from './components/footer'
+
 
 //We are now learning useState
 // useState is an object/hook that returns 2 values, a currentstate, and a function to update a state normally prefixed with `set`. 
@@ -14,11 +16,12 @@ import Content from './components/content'
 function App() {
   return (
     <div className='container'>
+      <Footer />
       <Nav menuOne="About" menuTwo="Projects" menuThree="Code" />
       <Header title="Hi, I am JMorian" subTitle="I am a Front-End Developer" />
       <Content />
+
     </div>
   )
 }
-
 export default App
