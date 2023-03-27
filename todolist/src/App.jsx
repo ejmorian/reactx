@@ -37,8 +37,8 @@ function App() {
         {list.map((task) => {
           return (
             <div>
-              <li onClick={() => checkTask(task.id, task.complete)} style={{ color: task.complete ? 'green' : 'black' }} key={task.id}>{task.name}
-                <span onClick={() => { deleteTask(task.id) }} style={{ marginLeft: '20px' }}>x</span></li>
+              <li onClick={() => checkTask(task.id, task.complete)} style={{ color: task.complete ? 'green' : 'black' }} key={task.id}>{task.name} </li>
+              <button onClick={() => { deleteTask(task.id) }} style={{ marginLeft: '20px' }}>x</button>
 
             </div>
           )
