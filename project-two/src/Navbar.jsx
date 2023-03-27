@@ -4,8 +4,8 @@ export default function Navbar() {
     return (
         <div>
             <Link to=''>Home</Link>
-            <Link to='roadmap'>Roadmap</Link>
-            <Link to='team'>Team</Link>
+            <Link to='profile'>Profile</Link>
+            <Link to='projects'>Projects</Link>
         </div>
     )
 }
