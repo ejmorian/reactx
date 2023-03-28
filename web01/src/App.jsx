@@ -10,9 +10,7 @@ function App() {
 
   return (
     <div>
-      <Header />
-      <Main />
-      <Footer />
+      <h1>Hello</h1>
 
     </div>
 
